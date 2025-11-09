@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.claude/
+
+# Project specific
+pdfs/*.pdf
+output_csv/*.csv
+*.log
+
+# Keep directories but ignore contents
+!pdfs/.gitkeep
+!output_csv/.gitkeep
+
+# Test files
+test_*.py
+*.sh
+
+# Environment variables
+.env
+.env.local
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Distribution / packaging
+pip-log.txt
+pip-delete-this-directory.txt
