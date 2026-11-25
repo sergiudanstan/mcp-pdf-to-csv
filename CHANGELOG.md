@@ -6,6 +6,11 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+### Changed
+- Dependencies: `pandas` floor raised to 3.1.1 on Python 3.11+; Python 3.10 stays supported on
+  `pandas>=2.3.0,<3` (pandas 3 requires Python 3.11+), using environment markers in
+  `requirements.txt`.
+
 ## [0.1.0] - 2026-11-25
 
 `mcp-pdf-to-csv` is a FastMCP server (one file, `pdf_to_csv_server.py`, stdio) that extracts
