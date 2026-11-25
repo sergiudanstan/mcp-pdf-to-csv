@@ -1,5 +1,5 @@
 # PDF to CSV MCP Server Dependencies
-# Python 3.10+
+# Python 3.11+
 
 # MCP Framework
 fastmcp>=2.13.0
@@ -8,6 +8,4 @@ fastmcp>=2.13.0
 pdfplumber>=0.11.8
 
 # Data Processing
-# pandas 3 requires Python >=3.11; Python 3.10 stays on the 2.3 line.
-pandas>=2.3.0,<3; python_version < "3.11"
-pandas>=3.1.1; python_version >= "3.11"
+pandas>=3.1.1

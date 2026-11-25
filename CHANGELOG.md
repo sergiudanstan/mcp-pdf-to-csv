@@ -7,9 +7,8 @@ All notable changes to this project are documented here. The format follows
 ## [Unreleased]
 
 ### Changed
-- Dependencies: `pandas` floor raised to 3.1.1 on Python 3.11+; Python 3.10 stays supported on
-  `pandas>=2.3.0,<3` (pandas 3 requires Python 3.11+), using environment markers in
-  `requirements.txt`.
+- Python 3.11 is now the minimum (3.10 reached end of life in October 2026). CI tests 3.11 and
+  3.13. `pandas` floor raised to 3.1.1, which needs Python 3.11+.
 
 ## [0.1.0] - 2026-11-25
 
