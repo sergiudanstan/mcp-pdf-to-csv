@@ -46,6 +46,7 @@ output_csv/*.csv
 
 # Test files
 test_*.py
+!tests/test_*.py
 *.sh
 
 # Environment variables

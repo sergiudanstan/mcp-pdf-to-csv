@@ -1,5 +1,10 @@
 # PDF to CSV MCP Server
 
+[![CI](https://github.com/sergiudanstan/mcp-pdf-to-csv/actions/workflows/ci.yml/badge.svg)](https://github.com/sergiudanstan/mcp-pdf-to-csv/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/sergiudanstan/mcp-pdf-to-csv/actions/workflows/codeql.yml/badge.svg)](https://github.com/sergiudanstan/mcp-pdf-to-csv/actions/workflows/codeql.yml)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/sergiudanstan/mcp-pdf-to-csv/badge)](https://scorecard.dev/viewer/?uri=github.com/sergiudanstan/mcp-pdf-to-csv)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 FastMCP server for extracting tables from PDF files and converting them to CSV format.
 
 ## Features
@@ -9,6 +14,8 @@ FastMCP server for extracting tables from PDF files and converting them to CSV f
 - **Flexible output**: Save individual tables or merge all tables per PDF
 - **Configurable folders**: Set custom input/output directories
 
+> **Security:** the tools are not confined to the configured folders; they can read PDFs from, and write CSVs to, any path your user can access. See [SECURITY.md](SECURITY.md).
+
 ## Installation
 
 ```bash
@@ -17,7 +24,7 @@ python3 -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
 # Install dependencies
-pip install fastmcp pdfplumber pandas
+pip install -r requirements.txt
 ```
 
 ## Configuration
@@ -29,8 +36,8 @@ The server is configured in Claude Desktop at:
 {
   "mcpServers": {
     "pdf-to-csv": {
-      "command": "/Users/sara/MCP_PDF_CSV/.venv/bin/python3",
-      "args": ["/Users/sara/MCP_PDF_CSV/pdf_to_csv_server.py"]
+      "command": "/path/to/mcp-pdf-to-csv/.venv/bin/python3",
+      "args": ["/path/to/mcp-pdf-to-csv/pdf_to_csv_server.py"]
     }
   }
 }
@@ -39,8 +46,8 @@ The server is configured in Claude Desktop at:
 ## Usage
 
 ### Default Folders
-- **Input**: `/Users/sara/MCP_PDF_CSV/pdfs/`
-- **Output**: `/Users/sara/MCP_PDF_CSV/output_csv/`
+- **Input**: `pdfs/` next to `pdf_to_csv_server.py`
+- **Output**: `output_csv/` next to `pdf_to_csv_server.py`
 
 ### Available MCP Tools
 
@@ -73,11 +80,12 @@ The server is configured in Claude Desktop at:
 
 ## Testing
 
-Run the test script to verify installation:
 ```bash
-source .venv/bin/activate
-python test_server.py
+pip install -r requirements.txt pytest
+python -m pytest -q tests
 ```
+
+The tests generate small PDFs with ruled tables, extract them with the real `pdfplumber`, and call the tools through an in-memory MCP client.
 
 ## Troubleshooting
 
@@ -90,7 +98,7 @@ tail -50 ~/Library/Logs/Claude/mcp-server-pdf-to-csv.log
 
 1. **"Read-only file system" error**: Fixed by using absolute paths (SCRIPT_DIR)
 2. **Connection errors**: Restart Claude Desktop after configuration changes
-3. **Missing dependencies**: Reinstall with `pip install fastmcp pdfplumber pandas`
+3. **Missing dependencies**: Reinstall with `pip install -r requirements.txt`
 
 ## Technical Details
 
@@ -103,8 +111,17 @@ tail -50 ~/Library/Logs/Claude/mcp-server-pdf-to-csv.log
 ## Files
 
 - `pdf_to_csv_server.py` - Main MCP server
-- `test_server.py` - Validation script
+- `tests/` - Test suite
 - `README.md` - This file
 - `.venv/` - Python virtual environment
 - `pdfs/` - Default input folder
 - `output_csv/` - Default output folder
+
+## Development
+
+```bash
+pip install -r requirements.txt pytest
+python -m pytest -q tests     # the tests generate their own PDFs
+```
+
+See [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md) (the tools can read and write anywhere your user can; read the threat model) and [CHANGELOG.md](CHANGELOG.md). The current version is in [VERSION](VERSION).
