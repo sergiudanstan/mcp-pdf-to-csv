@@ -2,7 +2,7 @@
 # Python 3.10+
 
 # MCP Framework
-fastmcp>=2.13.0
+fastmcp>=4.2.4
 
 # PDF Processing
 pdfplumber>=0.11.8
