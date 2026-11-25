@@ -73,7 +73,7 @@ Out of scope:
 
 ## Supply chain
 
-CI runs the test suite on Python 3.10 and 3.13 (PDFs generated in the test and parsed by
+CI runs the test suite on Python 3.11 and 3.13 (PDFs generated in the test and parsed by
 `pdfplumber`, tools called through an in-memory MCP client), `ruff` (syntax and undefined-name
 checks only), `pip-audit` on the dependencies resolved from `requirements.txt` and on the
 hash-pinned CI toolchain, CodeQL, and `zizmor` on the workflows. The runtime dependencies in
