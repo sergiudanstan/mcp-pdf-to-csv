@@ -26,4 +26,4 @@ python -m pytest -q tests          # no PDF fixtures needed; the tests generate 
 python pdf_to_csv_server.py        # run the server over stdio
 ```
 
-The root of the repository also contains many older guide files (`*DEPLOYMENT*.md`, `GITHUB_*.md`, ...); they are historical and not maintained with the code.
+Longer guides (quick start, remote deployment, MCP development) live in [docs/](docs/); they are not maintained with the code.

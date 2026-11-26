@@ -102,7 +102,7 @@ tail -50 ~/Library/Logs/Claude/mcp-server-pdf-to-csv.log
 
 ## Technical Details
 
-- **Framework**: FastMCP 2.13.0.2
+- **Framework**: FastMCP (`fastmcp>=4.2.4`, see `requirements.txt`)
 - **PDF Library**: pdfplumber (with pdfminer.six backend)
 - **Data Processing**: pandas
 - **Transport**: STDIO (Standard Input/Output)
@@ -113,6 +113,7 @@ tail -50 ~/Library/Logs/Claude/mcp-server-pdf-to-csv.log
 - `pdf_to_csv_server.py` - Main MCP server
 - `tests/` - Test suite
 - `README.md` - This file
+- `docs/` - Extra guides (quick start, remote deployment, MCP development)
 - `.venv/` - Python virtual environment
 - `pdfs/` - Default input folder
 - `output_csv/` - Default output folder

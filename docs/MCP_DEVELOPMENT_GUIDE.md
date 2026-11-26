@@ -250,8 +250,8 @@ Edit `claude_desktop_config.json`:
 {
   "mcpServers": {
     "pdf-processor": {
-      "command": "/Users/sara/my_mcp_server/.venv/bin/python3",
-      "args": ["/Users/sara/my_mcp_server/server.py"]
+      "command": "/path/to/my_mcp_server/.venv/bin/python3",
+      "args": ["/path/to/my_mcp_server/server.py"]
     }
   }
 }

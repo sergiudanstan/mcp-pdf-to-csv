@@ -6,7 +6,19 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-11-26
+
+### Fixed
+- The startup banner was printed to stdout, the JSON-RPC channel of the stdio transport, and
+  could break the client's handshake. It now goes to stderr; a test starts the server over
+  stdio and checks that stdout carries only JSON-RPC messages.
+
 ### Changed
+- Removed the root-level notes that only described how the repository was created and pushed
+  (`GITHUB_*.md`, `PUSH_STEPS.md`, `DEPLOYMENT_SUMMARY.md`, `DEPLOYMENT_COMPARISON.md`,
+  `INDEX.md`, `RESTART_INSTRUCTIONS.md`). The quick start, remote deployment and MCP
+  development guides moved to `docs/`, with personal paths replaced by placeholders.
+- README: the framework line now matches `requirements.txt` (`fastmcp>=4.2.4`).
 - Python 3.11 is now the minimum (3.10 reached end of life in October 2026). CI tests 3.11 and
   3.13. `pandas` floor raised to 3.1.1, which needs Python 3.11+.
 
