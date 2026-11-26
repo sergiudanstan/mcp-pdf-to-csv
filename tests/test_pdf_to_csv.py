@@ -128,3 +128,27 @@ class TestMcpTools:
                 return (await client.call_tool("extract_tables", {"filename": "missing.pdf"})).content[0].text
 
         assert asyncio.run(run()).startswith("Error:")
+
+
+def test_stdio_stdout_carries_only_jsonrpc():
+    """stdout is the JSON-RPC channel: the startup banner must go to stderr."""
+    import json
+    import subprocess
+    import sys
+
+    root = Path(__file__).resolve().parent.parent
+    init = {
+        "jsonrpc": "2.0", "id": 1, "method": "initialize",
+        "params": {"protocolVersion": "2025-06-18", "capabilities": {},
+                   "clientInfo": {"name": "t", "version": "0"}},
+    }
+    # stdin closes after the initialize request, so the server answers and exits.
+    proc = subprocess.run(
+        [sys.executable, str(root / "pdf_to_csv_server.py")],
+        input=json.dumps(init) + "\n", capture_output=True, text=True, timeout=60,
+    )
+    lines = [ln for ln in proc.stdout.splitlines() if ln.strip()]
+    assert lines, f"no response on stdout; stderr={proc.stderr!r}"
+    for ln in lines:
+        assert json.loads(ln)["jsonrpc"] == "2.0", ln
+    assert "Starting PDF to CSV MCP" in proc.stderr

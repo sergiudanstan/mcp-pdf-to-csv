@@ -124,7 +124,7 @@ scp pdf_to_csv_server.py user@your-server.com:/opt/mcp-servers/pdf-to-csv/
 
 # Or using rsync
 rsync -av --exclude='.venv' --exclude='__pycache__' \
-  /Users/sara/MCP_PDF_CSV/ \
+  /path/to/mcp-pdf-to-csv/ \
   user@your-server.com:/opt/mcp-servers/pdf-to-csv/
 ```
 

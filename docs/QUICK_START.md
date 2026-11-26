@@ -164,6 +164,6 @@ Problem? Check these in order:
 
 ## Need More Help?
 
-- Full guide: `MCP_DEVELOPMENT_GUIDE.md`
+- Full guide: `MCP_DEVELOPMENT_GUIDE.md` (in this folder)
 - FastMCP docs: https://gofastmcp.com
 - MCP spec: https://modelcontextprotocol.io

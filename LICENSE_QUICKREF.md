@@ -119,7 +119,6 @@ A: No! Just push to GitHub and it's automatic.
 - **Choose License:** https://choosealicense.com/
 - **MIT License:** https://opensource.org/licenses/MIT
 - **Full Guide:** See LICENSE_GUIDE.md
-- **Visual Guide:** See GITHUB_LICENSE_VISUAL.md
 
 ---
 

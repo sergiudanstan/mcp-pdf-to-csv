@@ -29,6 +29,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import List, Optional, Dict, Any
 
+import sys
 from pathlib import Path
 
 import pdfplumber
@@ -270,7 +271,7 @@ def show_config() -> str:
     return f"folder={settings.folder}\noutput_dir={settings.output_dir}"
 
 if __name__ == "__main__":
-    print("Starting PDF to CSV MCP (FastMCP) ...")
-    print(f"- folder: {settings.folder}")
-    print(f"- output: {settings.output_dir}")
+    print("Starting PDF to CSV MCP (FastMCP) ...", file=sys.stderr)
+    print(f"- folder: {settings.folder}", file=sys.stderr)
+    print(f"- output: {settings.output_dir}", file=sys.stderr)
     mcp.run()
